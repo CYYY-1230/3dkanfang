@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="公园旁住宅">
+  <rect width="1200" height="720" fill="#edf3ec"/>
+  <rect y="450" width="1200" height="270" fill="#c6d8bd"/>
+  <path d="M0 500 C180 430 350 506 510 455 C700 394 870 478 1200 402 L1200 720 L0 720Z" fill="#83a870"/>
+  <rect x="222" y="206" width="205" height="320" rx="8" fill="#f7f5ef"/>
+  <rect x="470" y="150" width="235" height="378" rx="8" fill="#fffaf0"/>
+  <rect x="752" y="230" width="180" height="300" rx="8" fill="#ecf2ed"/>
+  <g fill="#7da08f">
+    <rect x="255" y="250" width="40" height="38"/><rect x="350" y="250" width="40" height="38"/>
+    <rect x="255" y="324" width="40" height="38"/><rect x="350" y="324" width="40" height="38"/>
+    <rect x="255" y="398" width="40" height="38"/><rect x="350" y="398" width="40" height="38"/>
+    <rect x="515" y="196" width="48" height="42"/><rect x="612" y="196" width="48" height="42"/>
+    <rect x="515" y="282" width="48" height="42"/><rect x="612" y="282" width="48" height="42"/>
+    <rect x="515" y="368" width="48" height="42"/><rect x="612" y="368" width="48" height="42"/>
+    <rect x="790" y="274" width="38" height="34"/><rect x="860" y="274" width="38" height="34"/>
+    <rect x="790" y="346" width="38" height="34"/><rect x="860" y="346" width="38" height="34"/>
+  </g>
+  <circle cx="154" cy="180" r="54" fill="#d4a35f"/><circle cx="108" cy="215" r="72" fill="#6d9363"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="奶油风客厅">
+  <rect width="1200" height="760" fill="#f3ecdf"/><rect y="500" width="1200" height="260" fill="#dec9ad"/>
+  <rect x="94" y="86" width="430" height="310" rx="18" fill="#fffaf0"/><rect x="138" y="132" width="342" height="222" rx="10" fill="#d7c5aa"/>
+  <path d="M665 195 Q820 120 982 195 L982 390 L665 390Z" fill="#fff8ec"/><rect x="720" y="238" width="210" height="104" rx="52" fill="#d8b991"/>
+  <rect x="310" y="450" width="520" height="120" rx="60" fill="#c8875f"/><circle cx="422" cy="424" r="52" fill="#fff8ec"/><circle cx="615" cy="424" r="52" fill="#fff8ec"/>
+  <rect x="190" y="592" width="700" height="52" rx="26" fill="#fff8ec" opacity=".82"/><circle cx="980" cy="515" r="62" fill="#d9ae77"/>
+</svg>

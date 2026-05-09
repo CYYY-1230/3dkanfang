@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="现代阳台">
+  <rect width="1200" height="760" fill="#eaf2ef"/><rect y="505" width="1200" height="255" fill="#c7d7d1"/>
+  <rect x="80" y="95" width="1040" height="385" rx="10" fill="#d8e8e3"/><rect x="130" y="145" width="940" height="285" fill="#9fc7bd"/>
+  <rect x="180" y="500" width="230" height="82" rx="12" fill="#f7f5ef"/><rect x="760" y="500" width="220" height="82" rx="12" fill="#536c62"/>
+  <circle cx="690" cy="530" r="62" fill="#7da08f"/><rect x="540" y="545" width="380" height="44" rx="22" fill="#f7f5ef"/>
+</svg>

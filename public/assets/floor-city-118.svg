@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="660" viewBox="0 0 900 660" role="img" aria-label="118平三房户型图">
+  <rect width="900" height="660" fill="#f7f5ef"/><rect x="86" y="66" width="728" height="522" fill="#fffdf8" stroke="#22332e" stroke-width="10"/>
+  <rect x="96" y="76" width="378" height="245" fill="#e5efeb" stroke="#405d4c" stroke-width="5"/><text x="285" y="211" font-size="34" text-anchor="middle" fill="#17221f">客餐厅</text>
+  <rect x="474" y="76" width="178" height="245" fill="#f2e8d7" stroke="#405d4c" stroke-width="5"/><text x="563" y="211" font-size="30" text-anchor="middle" fill="#17221f">主卧</text>
+  <rect x="652" y="76" width="152" height="245" fill="#dfece8" stroke="#405d4c" stroke-width="5"/><text x="728" y="211" font-size="30" text-anchor="middle" fill="#17221f">主卫</text>
+  <rect x="96" y="321" width="205" height="257" fill="#edf3ec" stroke="#405d4c" stroke-width="5"/><text x="199" y="462" font-size="30" text-anchor="middle" fill="#17221f">次卧</text>
+  <rect x="301" y="321" width="175" height="257" fill="#f0efe7" stroke="#405d4c" stroke-width="5"/><text x="389" y="462" font-size="30" text-anchor="middle" fill="#17221f">书房</text>
+  <rect x="476" y="321" width="166" height="257" fill="#e8ede9" stroke="#405d4c" stroke-width="5"/><text x="559" y="462" font-size="30" text-anchor="middle" fill="#17221f">厨房</text>
+  <rect x="642" y="321" width="162" height="257" fill="#d7e8e3" stroke="#405d4c" stroke-width="5"/><text x="723" y="462" font-size="30" text-anchor="middle" fill="#17221f">阳台</text>
+  <text x="450" y="635" font-size="26" text-anchor="middle" fill="#5b6f68">AI 测试户型图 · 主卧套间版</text>
+</svg>

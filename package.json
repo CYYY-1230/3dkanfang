@@ -1,0 +1,40 @@
+{
+  "name": "3d-house-viewer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "generate:floor-plans": "node scripts/generate-floor-plan-images.mjs",
+    "generate:community-vr": "node scripts/generate-community-vr-assets.mjs",
+    "generate:floor-plan-templates": "node scripts/generate-floor-plan-templates.mjs",
+    "generate:four-room-vr-template": "node scripts/generate-four-room-vr-template.mjs",
+    "apply:floor-plan-templates": "node scripts/apply-floor-plan-templates.mjs"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.7.0",
+    "@supabase/ssr": "^0.10.3",
+    "@supabase/supabase-js": "^2.105.4",
+    "@types/three": "^0.184.1",
+    "lucide-react": "^0.468.0",
+    "next": "^15.0.3",
+    "prisma": "^6.7.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.16.0",
+    "eslint-config-next": "^15.0.3",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.7.2"
+  }
+}

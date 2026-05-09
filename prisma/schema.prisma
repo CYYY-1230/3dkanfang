@@ -1,0 +1,219 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id        String     @id @default(cuid())
+  email     String     @unique
+  name      String?
+  favorites Favorite[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Property {
+  id          String      @id @default(cuid())
+  name        String
+  city        String
+  district    String
+  address     String
+  latitude    Float
+  longitude   Float
+  priceRange  String
+  summary     String
+  coverImage  String
+  pois        Poi[]
+  floorPlans  FloorPlan[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model Poi {
+  id         String   @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  name       String
+  category   String
+  distance   String
+}
+
+model CommunityPoi {
+  id            String               @id @default(cuid())
+  amapId        String?              @unique
+  name          String
+  city          String
+  district      String
+  address       String
+  latitude      Float
+  longitude     Float
+  priceRange    String
+  summary       String
+  tags          String[]
+  floorPlanTags String[]             @default([])
+  locationTags  String[]             @default([])
+  priceTags     String[]             @default([])
+  minTotalPrice Int?
+  maxTotalPrice Int?
+  source        String               @default("amap")
+  raw           Json?
+  nearbyPois    CommunityNearbyPoi[]
+  floorPlans    CommunityFloorPlan[]
+  collectedAt   DateTime             @default(now())
+  updatedAt     DateTime             @updatedAt
+
+  @@index([city, district])
+  @@index([longitude, latitude])
+  @@index([minTotalPrice, maxTotalPrice])
+}
+
+model CommunityNearbyPoi {
+  id             String       @id @default(cuid())
+  communityPoiId String
+  communityPoi   CommunityPoi @relation(fields: [communityPoiId], references: [id], onDelete: Cascade)
+  amapId         String?
+  name           String
+  category       String
+  type           String?
+  typecode       String?
+  address        String
+  longitude      Float
+  latitude       Float
+  distance       Int
+  collectedAt    DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([communityPoiId, amapId, category])
+  @@index([communityPoiId, category])
+}
+
+model CommunityFloorPlan {
+  id             String       @id @default(cuid())
+  communityPoiId String
+  communityPoi   CommunityPoi @relation(fields: [communityPoiId], references: [id], onDelete: Cascade)
+  name           String
+  area           Int
+  layout         String
+  orientation    String
+  bathrooms      Int
+  balcony        Boolean
+  totalPrice     Int
+  tags           String[]
+  imageUrl       String
+  rooms          CommunityFloorPlanRoom[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@index([communityPoiId])
+  @@index([totalPrice])
+}
+
+model CommunityFloorPlanRoom {
+  id                   String               @id @default(cuid())
+  communityFloorPlanId String
+  communityFloorPlan   CommunityFloorPlan   @relation(fields: [communityFloorPlanId], references: [id], onDelete: Cascade)
+  name                 String
+  type                 String
+  sortOrder            Int
+  defaultYaw           Float                @default(0)
+  adjacent             String[]             @default([])
+  hotspots             Json?
+  assets               CommunityRoomAsset[]
+  createdAt            DateTime             @default(now())
+  updatedAt            DateTime             @updatedAt
+
+  @@index([communityFloorPlanId])
+}
+
+model CommunityRoomAsset {
+  id        String                 @id @default(cuid())
+  roomId    String
+  room      CommunityFloorPlanRoom @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  styleId   String
+  styleName String
+  type      String
+  imageUrl  String
+  prompt    String
+  status    String                 @default("pending")
+  qcStatus  String                 @default("pending")
+  qcError   String?
+  createdAt DateTime               @default(now())
+  updatedAt DateTime               @updatedAt
+
+  @@unique([roomId, styleId])
+  @@index([roomId])
+  @@index([styleId])
+}
+
+model FloorPlan {
+  id          String          @id @default(cuid())
+  propertyId  String
+  property    Property        @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  name        String
+  area        Int
+  layout      String
+  orientation String
+  bathrooms   Int
+  balcony     Boolean
+  highlights  String[]
+  imageUrl    String
+  rooms       Room[]
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+}
+
+model Room {
+  id          String         @id @default(cuid())
+  floorPlanId String
+  floorPlan   FloorPlan      @relation(fields: [floorPlanId], references: [id], onDelete: Cascade)
+  name        String
+  type        String
+  assets      ViewingAsset[]
+}
+
+model DesignStyle {
+  id          String         @id @default(cuid())
+  name        String         @unique
+  description String
+  assets      ViewingAsset[]
+}
+
+model ViewingAsset {
+  id        String      @id @default(cuid())
+  roomId    String
+  room      Room        @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  styleId   String
+  style     DesignStyle @relation(fields: [styleId], references: [id], onDelete: Cascade)
+  type      String
+  imageUrl  String
+  prompt    String
+}
+
+model Favorite {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  targetType String
+  targetId   String
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, targetType, targetId])
+  @@index([targetType, targetId])
+}
+
+model GenerationJob {
+  id          String   @id @default(cuid())
+  targetType  String
+  targetId    String
+  prompt      String
+  status      String
+  resultUrl   String?
+  error       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="滨江住宅立面">
+  <rect width="1200" height="720" fill="#dfece8"/>
+  <rect y="515" width="1200" height="205" fill="#bfd8d2"/>
+  <path d="M0 546 C180 500 290 584 470 536 C650 488 755 542 912 516 C1045 494 1126 512 1200 532 L1200 720 L0 720Z" fill="#86b8ac"/>
+  <rect x="218" y="120" width="180" height="430" rx="6" fill="#f7f5ef"/>
+  <rect x="430" y="72" width="230" height="482" rx="6" fill="#eef4f1"/>
+  <rect x="695" y="154" width="190" height="400" rx="6" fill="#f7f5ef"/>
+  <g fill="#88a99e">
+    <rect x="248" y="160" width="36" height="34"/><rect x="314" y="160" width="36" height="34"/>
+    <rect x="248" y="225" width="36" height="34"/><rect x="314" y="225" width="36" height="34"/>
+    <rect x="248" y="290" width="36" height="34"/><rect x="314" y="290" width="36" height="34"/>
+    <rect x="248" y="355" width="36" height="34"/><rect x="314" y="355" width="36" height="34"/>
+    <rect x="470" y="120" width="46" height="38"/><rect x="570" y="120" width="46" height="38"/>
+    <rect x="470" y="198" width="46" height="38"/><rect x="570" y="198" width="46" height="38"/>
+    <rect x="470" y="276" width="46" height="38"/><rect x="570" y="276" width="46" height="38"/>
+    <rect x="470" y="354" width="46" height="38"/><rect x="570" y="354" width="46" height="38"/>
+    <rect x="733" y="200" width="42" height="36"/><rect x="812" y="200" width="42" height="36"/>
+    <rect x="733" y="272" width="42" height="36"/><rect x="812" y="272" width="42" height="36"/>
+    <rect x="733" y="344" width="42" height="36"/><rect x="812" y="344" width="42" height="36"/>
+  </g>
+  <circle cx="1015" cy="178" r="76" fill="#f2ca72" opacity=".86"/>
+</svg>

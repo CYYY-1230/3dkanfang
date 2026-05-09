@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="城市科技住宅">
+  <rect width="1200" height="720" fill="#e8f0ed"/>
+  <rect y="520" width="1200" height="200" fill="#d0ddd8"/>
+  <rect x="150" y="220" width="145" height="330" fill="#e7eee9"/>
+  <rect x="322" y="105" width="220" height="445" fill="#f7f5ef"/>
+  <rect x="590" y="165" width="188" height="385" fill="#e2ece8"/>
+  <rect x="818" y="78" width="230" height="472" fill="#f4efe6"/>
+  <g fill="#56786e">
+    <rect x="186" y="258" width="34" height="32"/><rect x="238" y="258" width="34" height="32"/>
+    <rect x="186" y="332" width="34" height="32"/><rect x="238" y="332" width="34" height="32"/>
+    <rect x="186" y="406" width="34" height="32"/><rect x="238" y="406" width="34" height="32"/>
+    <rect x="365" y="152" width="48" height="38"/><rect x="454" y="152" width="48" height="38"/>
+    <rect x="365" y="232" width="48" height="38"/><rect x="454" y="232" width="48" height="38"/>
+    <rect x="365" y="312" width="48" height="38"/><rect x="454" y="312" width="48" height="38"/>
+    <rect x="365" y="392" width="48" height="38"/><rect x="454" y="392" width="48" height="38"/>
+    <rect x="636" y="210" width="42" height="36"/><rect x="708" y="210" width="42" height="36"/>
+    <rect x="636" y="292" width="42" height="36"/><rect x="708" y="292" width="42" height="36"/>
+    <rect x="868" y="128" width="52" height="42"/><rect x="963" y="128" width="52" height="42"/>
+    <rect x="868" y="218" width="52" height="42"/><rect x="963" y="218" width="52" height="42"/>
+    <rect x="868" y="308" width="52" height="42"/><rect x="963" y="308" width="52" height="42"/>
+  </g>
+  <path d="M0 595 C240 570 338 620 520 586 C720 548 856 594 1200 560 L1200 720 L0 720Z" fill="#92b8b0"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="轻奢客厅">
+  <rect width="1200" height="760" fill="#e8e4da"/><rect y="500" width="1200" height="260" fill="#c8b58f"/>
+  <rect x="90" y="78" width="430" height="322" rx="6" fill="#f8f5ef"/><rect x="136" y="124" width="338" height="230" fill="#8ca59d"/>
+  <rect x="640" y="160" width="390" height="236" rx="8" fill="#efe8dc"/><rect x="690" y="205" width="290" height="144" fill="#b79555" opacity=".38"/>
+  <rect x="292" y="448" width="545" height="118" rx="18" fill="#273a34"/><rect x="330" y="398" width="155" height="90" rx="10" fill="#f5eee1"/><rect x="568" y="398" width="178" height="90" rx="10" fill="#f5eee1"/>
+  <rect x="188" y="592" width="720" height="54" rx="8" fill="#f7f5ef" opacity=".86"/><circle cx="980" cy="512" r="64" fill="#1f2c28"/><circle cx="980" cy="512" r="48" fill="#b79555"/>
+</svg>

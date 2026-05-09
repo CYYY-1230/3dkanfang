@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="奶油风厨房">
+  <rect width="1200" height="760" fill="#f5ecdd"/><rect y="530" width="1200" height="230" fill="#dcc2a0"/>
+  <rect x="140" y="160" width="900" height="100" rx="28" fill="#fff8ec"/><rect x="140" y="260" width="900" height="255" rx="24" fill="#ead9c0"/>
+  <rect x="215" y="315" width="170" height="145" rx="18" fill="#fff8ec"/><rect x="440" y="315" width="170" height="145" rx="18" fill="#fff8ec"/><rect x="665" y="315" width="170" height="145" rx="18" fill="#fff8ec"/>
+  <rect x="175" y="542" width="580" height="64" rx="32" fill="#fff8ec"/><circle cx="910" cy="585" r="56" fill="#c8875f"/>
+</svg>

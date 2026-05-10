@@ -128,7 +128,7 @@ export async function getStoredCommunityNearbyPois({
       ...(categoryId ? { category: poiCategories.find((category) => category.id === categoryId)?.label } : {}),
     },
     orderBy: [{ category: "asc" }, { distance: "asc" }],
-    take: categoryId ? 12 : 24,
+    ...(categoryId ? { take: 12 } : {}),
   });
 }
 
@@ -151,7 +151,7 @@ export async function getCommunityNearbyPois({
 export async function getCommunityNearbyPoiSummary(propertyId: string): Promise<Poi[]> {
   const storedPois = await getStoredCommunityNearbyPois({ propertyId });
   const balancedPois = poiCategoryLabels.flatMap((category) =>
-    storedPois.filter((poi) => poi.category === category).slice(0, 2),
+    storedPois.filter((poi) => poi.category === category),
   );
 
   return balancedPois.map((poi) => ({

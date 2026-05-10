@@ -150,8 +150,11 @@ export async function getCommunityNearbyPois({
 
 export async function getCommunityNearbyPoiSummary(propertyId: string): Promise<Poi[]> {
   const storedPois = await getStoredCommunityNearbyPois({ propertyId });
+  const balancedPois = poiCategoryLabels.flatMap((category) =>
+    storedPois.filter((poi) => poi.category === category).slice(0, 2),
+  );
 
-  return storedPois.slice(0, 8).map((poi) => ({
+  return balancedPois.map((poi) => ({
     id: poi.amapId ?? poi.id,
     name: poi.name,
     category: toPoiCategory(poi.category),

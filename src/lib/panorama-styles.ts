@@ -2,11 +2,6 @@ import type { DesignStyle } from "@/lib/types";
 
 export const panoramaStyles: DesignStyle[] = [
   {
-    id: "whitebox",
-    name: "白膜底稿",
-    description: "无材质空间骨架，保留墙地顶、门窗和白膜家具。",
-  },
-  {
     id: "bauhaus",
     name: "包豪斯风格",
     description: "几何秩序、功能主义、黑白灰基础和红黄蓝点缀。",
@@ -22,3 +17,9 @@ export const panoramaStyles: DesignStyle[] = [
     description: "干净线条、低饱和灰白和简洁家具，减少装饰。",
   },
 ];
+
+export const panoramaFallbackStyle: DesignStyle = {
+  id: "whitebox",
+  name: "白膜底稿",
+  description: "无材质空间骨架，保留墙地顶、门窗和白膜家具。",
+};

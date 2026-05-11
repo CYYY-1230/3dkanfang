@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import { getCommunityFloorPlan } from "@/lib/community-property";
-import { designStyles, getFloorPlan } from "@/lib/data";
+import { getFloorPlan } from "@/lib/data";
 import { panoramaStyles } from "@/lib/panorama-styles";
+import { hasPanoramaAssets, withPanoramaViewerAssets } from "@/lib/vr-viewing-data";
 import { ViewerClient } from "./viewer-client";
 
 export default async function ViewerPage({
@@ -17,11 +18,15 @@ export default async function ViewerPage({
     notFound();
   }
 
+  const floorPlan = hasPanoramaAssets(result.floorPlan)
+    ? result.floorPlan
+    : withPanoramaViewerAssets(result.floorPlan);
+
   return (
     <ViewerClient
       property={result.property}
-      floorPlan={result.floorPlan}
-      styles={staticResult ? designStyles : panoramaStyles}
+      floorPlan={floorPlan}
+      styles={panoramaStyles}
     />
   );
 }

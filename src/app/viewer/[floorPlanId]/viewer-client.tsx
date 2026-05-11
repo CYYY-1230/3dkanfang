@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import * as THREE from "three";
-import { ArrowLeft, BedDouble, Home, Layers3, RotateCcw } from "lucide-react";
+import { ArrowLeft, BedDouble, ChevronRight, Compass, Home, Layers3, RotateCcw } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { FavoriteButton } from "@/components/favorite-button";
 import type { DesignStyle, FloorPlan, Property, Room, ViewingAsset } from "@/lib/types";
@@ -44,6 +45,15 @@ export function ViewerClient({
   const activeAsset = asset ?? whiteboxAsset ?? room?.assets[0];
   const activeAssetUrl = activeAsset?.imageUrl ?? "";
   const isFallback = Boolean(activeAsset && asset !== activeAsset && activeStyle?.id !== "whitebox");
+  const roomTargets = useMemo(() => {
+    const names = room?.adjacent && room.adjacent.length > 0
+      ? room.adjacent
+      : floorPlan.rooms.filter((item) => item.id !== room?.id).map((item) => item.name);
+
+    return names
+      .map((name) => floorPlan.rooms.find((item) => item.name === name))
+      .filter((item): item is Room => Boolean(item));
+  }, [floorPlan.rooms, room]);
 
   const resizeAndRender = useCallback(() => {
     const shell = shellRef.current;
@@ -215,7 +225,9 @@ export function ViewerClient({
 
   function handlePointerUp(event: React.PointerEvent<HTMLDivElement>) {
     dragRef.current.active = false;
-    event.currentTarget.releasePointerCapture(event.pointerId);
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
   }
 
   function handleWheel(event: React.WheelEvent<HTMLDivElement>) {
@@ -265,7 +277,8 @@ export function ViewerClient({
             onPointerUp={handlePointerUp}
             onPointerCancel={handlePointerUp}
             onWheel={handleWheel}
-            className="relative min-h-[420px] cursor-grab overflow-hidden rounded-2xl border border-white/10 bg-[#191715] shadow-soft active:cursor-grabbing sm:min-h-[500px] lg:h-[calc(100vh-220px)] lg:min-h-[500px]"
+            className="relative min-h-[420px] touch-none cursor-grab overflow-hidden rounded-2xl border border-white/10 bg-[#191715] shadow-soft active:cursor-grabbing sm:min-h-[500px] lg:h-[calc(100vh-220px)] lg:min-h-[500px]"
+            aria-label={`${room.name}${activeStyle?.name ?? ""}全景看房画面`}
           >
             <div
               ref={stageRef}
@@ -294,15 +307,31 @@ export function ViewerClient({
             <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/58 to-transparent p-5 sm:p-6">
               <p className="inline-flex items-center gap-2 rounded-md bg-white/12 px-3 py-1 text-sm font-bold text-pearl/82">
                 <RotateCcw size={16} />
-                360 VR 看房 · {assetState}
+                AI 全景看房 · {assetState}
               </p>
               <h1 className="mt-3 text-3xl font-bold sm:text-4xl">
                 {room.name} · {activeStyle?.name ?? "空间"}
               </h1>
               <p className="mt-2 max-w-2xl text-sm leading-6 text-pearl/70">
-                拖拽画面环视空间，滚轮缩放视角。风格图缺失时会自动回退到白膜底稿。
+                鼠标或手指拖拽画面环视空间，桌面端可用滚轮缩放视角。
               </p>
             </div>
+
+            {roomTargets.length > 0 ? (
+              <div className="absolute right-4 top-4 z-20 flex max-w-[calc(100%-2rem)] flex-wrap justify-end gap-2">
+                {roomTargets.slice(0, 3).map((target) => (
+                  <button
+                    key={target.id}
+                    type="button"
+                    onClick={() => setRoomId(target.id)}
+                    className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/14 bg-ink/70 px-3 py-2 text-xs font-bold text-pearl shadow-soft backdrop-blur-xl transition hover:bg-ink"
+                  >
+                    {target.name}
+                    <ChevronRight size={14} />
+                  </button>
+                ))}
+              </div>
+            ) : null}
           </div>
 
           <section className="rounded-2xl border border-white/10 bg-white/8 p-4">
@@ -339,6 +368,22 @@ export function ViewerClient({
             <div className="mt-4 grid grid-cols-2 gap-3">
               <Meta icon={<Home size={16} />} label="户型" value={floorPlan.layout} />
               <Meta icon={<Layers3 size={16} />} label="面积" value={`${floorPlan.area} 平`} />
+            </div>
+          </section>
+
+          <section className="rounded-2xl border border-white/10 bg-white/8 p-5">
+            <h3 className="flex items-center gap-2 text-lg font-bold">
+              <Compass size={18} />
+              户型定位
+            </h3>
+            <div className="relative mt-4 aspect-[4/3] overflow-hidden rounded-xl border border-white/10 bg-pearl">
+              <Image
+                src={floorPlan.imageUrl}
+                alt={`${floorPlan.name}户型图`}
+                fill
+                className="object-contain p-3"
+                sizes="360px"
+              />
             </div>
           </section>
 

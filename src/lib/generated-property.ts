@@ -1,4 +1,5 @@
 import type { Property } from "@/lib/types";
+import { communityCoverImage } from "@/lib/community-cover";
 
 type CommunitySeed = {
   id?: string;
@@ -75,7 +76,7 @@ export function createGeneratedProperty(seed: CommunitySeed): Property {
     longitude: seed.longitude,
     priceRange: `${lowTotal}-${highTotal} 万`,
     summary: `${distanceText}。${inferAudience(seed)}价格、户型和成交信息为 AI 估算示意，用于演示产品效果。`,
-    coverImage: "/assets/property-city.svg",
+    coverImage: communityCoverImage,
     tags: [
       "高德POI",
       "AI示意资料",

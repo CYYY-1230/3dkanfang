@@ -23,6 +23,7 @@ import { AmapPropertyMap } from "@/components/amap-property-map";
 import { AppShell } from "@/components/app-shell";
 import { FavoriteButton } from "@/components/favorite-button";
 import { getCityOption, supportedCityNames, type SupportedCity } from "@/lib/city-options";
+import { communityCoverImage } from "@/lib/community-cover";
 import { properties } from "@/lib/data";
 import type { Property } from "@/lib/types";
 
@@ -162,7 +163,7 @@ export default function HomePage() {
       longitude: cityOption.center[0],
       priceRange: "待筛选",
       summary: `正在读取${cityFilter}小区数据，地图可以先缩放和拖动查看城市范围。`,
-      coverImage: "/assets/property-city.svg",
+      coverImage: communityCoverImage,
       tags: ["城市中心"],
       floorPlanTags: [],
       locationTags: [],

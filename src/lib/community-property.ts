@@ -9,6 +9,7 @@ import {
   getCommunityLookupKey,
   upsertCommunityFromAmapPoi,
 } from "@/lib/community-ingest";
+import { communityCoverImage } from "@/lib/community-cover";
 import { applyDerivedDataToProperty, toFloorPlan } from "@/lib/community-derived-data";
 import { prisma } from "@/lib/prisma";
 import type { Property, Room } from "@/lib/types";
@@ -77,7 +78,7 @@ function communityToProperty(community: CommunityWithPlans): Property {
     longitude: community.longitude,
     priceRange: community.priceRange,
     summary: community.summary,
-    coverImage: "/assets/property-city.svg",
+    coverImage: communityCoverImage,
     tags: [
       ...new Set([
         ...community.tags,

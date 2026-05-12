@@ -7,6 +7,7 @@ import { EmptyState } from "@/components/app-shell";
 import { FloorPlanCard } from "@/components/floor-plan-card";
 import { FavoriteButton, useFavoriteIds, usePropertyFavoriteIds } from "@/components/favorite-button";
 import { useFavorites } from "@/components/favorites-provider";
+import { communityCoverImage } from "@/lib/community-cover";
 import type { Property } from "@/lib/types";
 
 function createMissingFavoriteProperty(propertyId: string): Property {
@@ -20,7 +21,7 @@ function createMissingFavoriteProperty(propertyId: string): Property {
     longitude: 120.1551,
     priceRange: "资料同步中",
     summary: "收藏记录已保存到账号，系统正在等待小区详情资料同步。",
-    coverImage: "/assets/property-city.svg",
+    coverImage: communityCoverImage,
     tags: ["已收藏", "资料同步中"],
     pois: [],
     floorPlans: [],
